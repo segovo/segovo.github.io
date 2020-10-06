@@ -1,26 +1,384 @@
 <!DOCTYPE html>
-
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-</head>
-
 <html>
-    <body>
-        <div class="main">
-            <h1>Oxygen Cycle</h1>
-            <p>You are an oxygen molecule in the Oxygen Cycle, you start in the atmosphere, where do you go?</p>
-            <i>- Fun fact, the atmosphere only contains 0.35% of Earth's Oxygen.</i>
+	<head>
+		<meta charset="utf-8">
+		<title>Atomic Theory Timeline</title>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+		<style>
+			body { margin: 0; }
+			canvas { display: block; }
+		</style>
+	</head>
+	<body>
+		<div style="position: absolute; text-align: center; top: 5px; width: 100%; background-color: white; font-size: 18px; font-family: Roboto;">Use A and D, or arrow keys to move through the timeline.</div>
+		<canvas id="canvasOne" style="display: none;"></canvas>
+		<canvas id="canvasTwo" style="display: none;"></canvas>
+		<canvas id="canvasThree" style="display: none;"></canvas>
+		<canvas id="canvasFour" style="display: none;"></canvas>
+		<canvas id="canvasFive" style="display: none;"></canvas>
+		<canvas id="canvasSix" style="display: none;"></canvas>
+		<canvas id="canvasSeven" style="display: none;"></canvas>
 
-        </div>
-        <div class="main">
-            <a href="q1-a1.html">(1) Breathed in by human (cellular respiration)</a>
-        </div>
-        <div class="main">
-            <a href="q1-a2.html">(2) Used in decomposition</a>
-        </div>
-        <div class="main">
-            <a href="q1-a3.html">(3) Absorbed by water (absorption)</a>
-        </div>
-    </body>
+		<script src="js/three.js"></script>
+
+		<script>
+			//###########
+			//Canvas 1
+			//###########
+			var canvas = document.getElementById("canvasOne");
+			ctx = canvas.getContext('2d');
+			canvas.width = 1000;
+			canvas.height = 1000;
+			ctx.fillStyle = '#0c35c9';
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+			ctx.fillStyle = '#1f7af0';
+			ctx.fillRect(15, 15, canvas.width-30, canvas.height-30);
+			//ctx.strokeStyle = '#ff00ff';
+			//ctx.strokeRect(0, 0, canvas.width, canvas.height);
+			ctx.fillStyle = '#ffffff';
+			ctx.font = "300 128px Roboto";
+			ctx.fillText("Democritus", 30, 130);
+			ctx.font = "500 64px Roboto";
+			ctx.fillText("⦿ Discovery 460 - 370 B.C.", 30, 200);
+			ctx.font = "500 42px Roboto";
+			ctx.fillText("• Greece, 460 - 370 B.C.", 30, 300);
+			ctx.fillText("• First theorized about atoms being the base unit.", 30, 350);
+			ctx.fillText("• Likely derived from observation and", 30, 400);
+			ctx.fillText("thinking, he never tried any experiments.", 30, 450);
+			ctx.fillText("• Fact: very strongly disliked by Plato.", 30, 500);
+
+			//###########
+			//Canvas 2
+			//###########
+			var canvas2 = document.getElementById("canvasTwo");
+			ctx2 = canvas2.getContext('2d');
+			canvas2.width = 1000;
+			canvas2.height = 1000;
+			ctx2.fillStyle = '#c91c98';
+			ctx2.fillRect(0, 0, canvas.width, canvas.height);
+			ctx2.fillStyle = '#f037e6';
+			ctx2.fillRect(15, 15, canvas.width-30, canvas.height-30);
+			//ctx.strokeStyle = '#ff00ff';
+			//ctx.strokeRect(0, 0, canvas.width, canvas.height);
+			ctx2.fillStyle = '#ffffff';
+			ctx2.font = "300 128px Roboto";
+			ctx2.fillText("John Dalton", 30, 130);
+			ctx2.font = "500 64px Roboto";
+			ctx2.fillText("⦿ Discovery 1808", 30, 200);
+			ctx2.font = "500 42px Roboto";
+			ctx2.fillText("• England, 1766 - 1844", 30, 300);
+			ctx2.fillText("• Formulated the basic atomic theory.", 30, 350);
+			ctx2.fillText("• Based on the laws of conservation of mass, ", 30, 400);
+			ctx2.fillText("definite proportions, and multiple proportions.", 30, 450);
+			ctx2.fillText("• Fact: researched colour-blindness.", 30, 500);
+
+			//###########
+			//Canvas 3
+			//###########
+			var canvas3 = document.getElementById("canvasThree");
+			ctx3 = canvas3.getContext('2d');
+			canvas3.width = 1000;
+			canvas3.height = 1000;
+			ctx3.fillStyle = '#11cc0e';
+			ctx3.fillRect(0, 0, canvas.width, canvas.height);
+			ctx3.fillStyle = '#57d977';
+			ctx3.fillRect(15, 15, canvas.width-30, canvas.height-30);
+			//ctx.strokeStyle = '#ff00ff';
+			//ctx.strokeRect(0, 0, canvas.width, canvas.height);
+			ctx3.fillStyle = '#ffffff';
+			ctx3.font = "300 128px Roboto";
+			ctx3.fillText("J. J. Thomson", 30, 130);
+			ctx3.font = "500 64px Roboto";
+			ctx3.fillText("⦿ Discovery 1897", 30, 200);
+			ctx3.font = "500 40px Roboto";
+			ctx3.fillText("• England, 1856 - 1940", 30, 300);
+			ctx3.fillText("• Discovered the electron.", 30, 350);
+			ctx3.fillText("• Experimented with a cathode ray tube, finding that", 30, 400);
+			ctx3.fillText("the rays are actually high speed negative particles.", 30, 450);
+			ctx3.fillText("• Fact: Discoved hydrogen only has one atom.", 30, 500);
+
+			//###########
+			//Canvas 4
+			//###########
+			var canvas4 = document.getElementById("canvasFour");
+			ctx4 = canvas4.getContext('2d');
+			canvas4.width = 1000;
+			canvas4.height = 1000;
+			ctx4.fillStyle = '#d66b0d';
+			ctx4.fillRect(0, 0, canvas.width, canvas.height);
+			ctx4.fillStyle = '#f78914';
+			ctx4.fillRect(15, 15, canvas.width-30, canvas.height-30);
+			//ctx.strokeStyle = '#ff00ff';
+			//ctx.strokeRect(0, 0, canvas.width, canvas.height);
+			ctx4.fillStyle = '#ffffff';
+			ctx4.font = "300 128px Roboto";
+			ctx4.fillText("Robert Millikan", 30, 130);
+			ctx4.font = "500 64px Roboto";
+			ctx4.fillText("⦿ Discovery 1908 - 1917", 30, 200);
+			ctx4.font = "500 40px Roboto";
+			ctx4.fillText("• California, 1868 - 1953", 30, 300);
+			ctx4.fillText("• Found the mass/charge of a single electron.", 30, 350);
+			ctx4.fillText("• Discovered with the oil drop experiment, where", 30, 400);
+			ctx4.fillText("suspended oil drops were observed with a microscope.", 30, 450);
+			ctx4.fillText("• Fact: wrote a message in a timecapsule.", 30, 500);
+
+			//###########
+			//Canvas 5
+			//###########
+			var canvas5 = document.getElementById("canvasFive");
+			ctx5 = canvas5.getContext('2d');
+			canvas5.width = 1000;
+			canvas5.height = 1000;
+			ctx5.fillStyle = '#720aa3';
+			ctx5.fillRect(0, 0, canvas.width, canvas.height);
+			ctx5.fillStyle = '#b728fa';
+			ctx5.fillRect(15, 15, canvas.width-30, canvas.height-30);
+			//ctx.strokeStyle = '#ff00ff';
+			//ctx.strokeRect(0, 0, canvas.width, canvas.height);
+			ctx5.fillStyle = '#ffffff';
+			ctx5.font = "300 116px Roboto";
+			ctx5.fillText("Eugene Goldstein", 30, 130);
+			ctx5.font = "500 64px Roboto";
+			ctx5.fillText("⦿ Discovery 1886", 30, 200);
+			ctx5.font = "500 40px Roboto";
+			ctx5.fillText("• Poland, 1850 - 1930", 30, 300);
+			ctx5.fillText("• Discovered the proton.", 30, 350);
+			ctx5.fillText("• Noticed rays going in the opposite direction ", 30, 400);
+			ctx5.fillText("of the cathode ray path.", 30, 450);
+			ctx5.fillText("• Fact: Worked at the Berlin and Potsdam Observatory's.", 30, 500);
+
+			//###########
+			//Canvas 6
+			//###########
+			var canvas6 = document.getElementById("canvasSix");
+			ctx6 = canvas6.getContext('2d');
+			canvas6.width = 1000;
+			canvas6.height = 1000;
+			ctx6.fillStyle = '#51a30a';
+			ctx6.fillRect(0, 0, canvas.width, canvas.height);
+			ctx6.fillStyle = '#77db1f';
+			ctx6.fillRect(15, 15, canvas.width-30, canvas.height-30);
+			//ctx.strokeStyle = '#ff00ff';
+			//ctx.strokeRect(0, 0, canvas.width, canvas.height);
+			ctx6.fillStyle = '#ffffff';
+			ctx6.font = "300 116px Roboto";
+			ctx6.fillText("Ernest Rutherford", 30, 130);
+			ctx6.font = "500 64px Roboto";
+			ctx6.fillText("⦿ Discovery 1911", 30, 200);
+			ctx6.font = "500 40px Roboto";
+			ctx6.fillText("• New Zealand, 1871 - 1937", 30, 300);
+			ctx6.fillText("• Came up with the nuclear atomic model.", 30, 350);
+			ctx6.fillText("• Shot particles at gold foil, ", 30, 400);
+			ctx6.fillText("finding that some particles deflected at weird angles.", 30, 450);
+			ctx6.fillText("• Fact: element rutherfordium, named after him.", 30, 500);
+
+			//###########
+			//Canvas 7
+			//###########
+			var canvas7 = document.getElementById("canvasSeven");
+			ctx7 = canvas7.getContext('2d');
+			canvas7.width = 1000;
+			canvas7.height = 1000;
+			ctx7.fillStyle = '#17bbfc';
+			ctx7.fillRect(0, 0, canvas.width, canvas.height);
+			ctx7.fillStyle = '#27def2';
+			ctx7.fillRect(15, 15, canvas.width-30, canvas.height-30);
+			//ctx.strokeStyle = '#ff00ff';
+			//ctx.strokeRect(0, 0, canvas.width, canvas.height);
+			ctx7.fillStyle = '#ffffff';
+			ctx7.font = "300 116px Roboto";
+			ctx7.fillText("Murray Gell-Mann", 30, 130);
+			ctx7.font = "500 64px Roboto";
+			ctx7.fillText("⦿ Discovery 1961", 30, 200);
+			ctx7.font = "500 42px Roboto";
+			ctx7.fillText("• America, 1929 - 2019", 30, 300);
+			ctx7.fillText("• Created the quark model.", 30, 350);
+			ctx7.fillText("• From observations of cosmic ray particles, ", 30, 400);
+			ctx7.fillText("and trying to classify them.", 30, 450);
+			ctx7.fillText("• Fact: co-founded the Santa Fe Institute", 30, 500);
+
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+			scene.background = new THREE.Color(new THREE.Color("rgb(255, 255, 255)"));
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			var texture = new THREE.CanvasTexture(canvas);
+			var texture2 = new THREE.CanvasTexture(canvas2);
+			var texture3 = new THREE.CanvasTexture(canvas3);
+			var texture4 = new THREE.CanvasTexture(canvas4);
+			var texture5 = new THREE.CanvasTexture(canvas5);
+			var texture6 = new THREE.CanvasTexture(canvas6);
+			var texture7 = new THREE.CanvasTexture(canvas7);
+
+			//texture.wrapS = THREE.RepeatWrapping;
+			//texture.wrapT = THREE.RepeatWrapping;
+			//texture.repeat.set( 2, 1 );
+
+			var geometry = new THREE.PlaneGeometry( 3, 3, 32 );
+			var material = new THREE.MeshBasicMaterial( {map: texture, side: THREE.DoubleSide} );
+			var plane = new THREE.Mesh( geometry, material );
+			scene.add( plane );
+			plane.rotation.y = -0.26;
+			var geometry2 = new THREE.PlaneGeometry( 3, 3, 32 );
+			var material2 = new THREE.MeshBasicMaterial( {map: texture2, side: THREE.DoubleSide} );
+			var plane2 = new THREE.Mesh( geometry, material2 );
+			scene.add( plane2 );
+			plane2.position.x = 5
+			plane2.rotation.y = -0.26;
+			var geometry3 = new THREE.PlaneGeometry( 3, 3, 32 );
+			var material3 = new THREE.MeshBasicMaterial( {map: texture3, side: THREE.DoubleSide} );
+			var plane3 = new THREE.Mesh( geometry, material3 );
+			scene.add( plane3 )
+			plane3.position.x = 10
+			plane3.rotation.y = -0.26;
+			var geometry4 = new THREE.PlaneGeometry( 3, 3, 32 );
+			var material4 = new THREE.MeshBasicMaterial( {map: texture4, side: THREE.DoubleSide} );
+			var plane4 = new THREE.Mesh( geometry, material4 );
+			scene.add( plane4 );
+			plane4.position.x = 15
+			plane4.rotation.y = -0.26;
+			var geometry5 = new THREE.PlaneGeometry( 3, 3, 32 );
+			var material5 = new THREE.MeshBasicMaterial( {map: texture5, side: THREE.DoubleSide} );
+			var plane5 = new THREE.Mesh( geometry, material5 );
+			scene.add( plane5 );
+			plane5.position.x = 20
+			plane5.rotation.y = -0.26;
+			var geometry6 = new THREE.PlaneGeometry( 3, 3, 32 );
+			var material6 = new THREE.MeshBasicMaterial( {map: texture6, side: THREE.DoubleSide} );
+			var plane6 = new THREE.Mesh( geometry, material6 );
+			scene.add( plane6 );
+			plane6.position.x = 25
+			plane6.rotation.y = -0.26;
+			var geometry7 = new THREE.PlaneGeometry( 3, 3, 32 );
+			var material7 = new THREE.MeshBasicMaterial( {map: texture7, side: THREE.DoubleSide} );
+			var plane7 = new THREE.Mesh( geometry, material7 );
+			scene.add( plane7 );
+			plane7.position.x = 30
+			plane7.rotation.y = -0.26;
+
+
+			//************************ Pictures ***********
+			var textureP1 = new THREE.TextureLoader().load("https://upload.wikimedia.org/wikipedia/commons/b/b9/Democritus2.jpg")
+			var geometryP1 = new THREE.PlaneGeometry( 518/716, 1, 32 );
+			var materialP1 = new THREE.MeshBasicMaterial( {map: textureP1, side: THREE.DoubleSide} );
+			var planeP1 = new THREE.Mesh( geometryP1, materialP1 );
+			scene.add( planeP1 );
+			planeP1.rotation.y = -0.26;
+			planeP1.position.x = -0.6;
+			planeP1.position.y = -0.8;
+			planeP1.position.z = 0.3
+
+			var textureP2 = new THREE.TextureLoader().load("https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3A7a62c222a9fecbc25c5a106f0f62e008dea2ed3b423fdcb669d1c959%2BIMAGE_THUMB_POSTCARD_TINY%2BIMAGE_THUMB_POSTCARD_TINY.1")
+			var geometryP2 = new THREE.PlaneGeometry( 1, 321/500, 32 );
+			var materialP2 = new THREE.MeshBasicMaterial( {map: textureP2, side: THREE.DoubleSide, transparent: true} );
+			var planeP2 = new THREE.Mesh( geometryP2, materialP2 );
+			scene.add( planeP2 );
+			planeP2.rotation.y = -0.26;
+			planeP2.position.x = -0.6+5;
+			planeP2.position.y = -1.2;
+			planeP2.position.z = 0.3
+
+			var textureP3 = new THREE.TextureLoader().load("https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3Ac90d4d97488fac3e1d2a4918e087f983b3117acb1442b4894bf82be8%2BIMAGE_THUMB_POSTCARD_TINY%2BIMAGE_THUMB_POSTCARD_TINY.1")
+			var geometryP3 = new THREE.PlaneGeometry( 2, (375/500)*2, 32 );
+			var materialP3 = new THREE.MeshBasicMaterial( {map: textureP3, side: THREE.DoubleSide, transparent: true} );
+			var planeP3 = new THREE.Mesh( geometryP3, materialP3 );
+			scene.add( planeP3 );
+			planeP3.rotation.y = -0.26;
+			planeP3.position.x = -0.4+10;
+			planeP3.position.y = -0.9;
+			planeP3.position.z = 0.3
+
+			var textureP4 = new THREE.TextureLoader().load("https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3A306f65e7619a47e0a25b34368c1db1da259fb7707d8d30aa06fe5845%2BIMAGE_THUMB_POSTCARD_TINY%2BIMAGE_THUMB_POSTCARD_TINY.1")
+			var geometryP4 = new THREE.PlaneGeometry( 2, (389/500)*2, 32 );
+			var materialP4 = new THREE.MeshBasicMaterial( {map: textureP4, side: THREE.DoubleSide, transparent: true} );
+			var planeP4 = new THREE.Mesh( geometryP4, materialP4 );
+			scene.add( planeP4 );
+			planeP4.rotation.y = -0.26;
+			planeP4.position.x = -0.6+15;
+			planeP4.position.y = -1;
+			planeP4.position.z = 0.3
+
+			var textureP6 = new THREE.TextureLoader().load("https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3A6699b06ec728fe2c802137cd6f0b742f3c18f04958f279fe0f8316f8%2BIMAGE_THUMB_POSTCARD_TINY%2BIMAGE_THUMB_POSTCARD_TINY.1")
+			var geometryP6 = new THREE.PlaneGeometry( 2, (223/500)*2, 32 );
+			var materialP6 = new THREE.MeshBasicMaterial( {map: textureP6, side: THREE.DoubleSide} );
+			var planeP6 = new THREE.Mesh( geometryP6, materialP6 );
+			scene.add( planeP6 );
+			planeP6.rotation.y = -0.26;
+			planeP6.position.x = -0.4+25;
+			planeP6.position.y = -0.9;
+			planeP6.position.z = 0.3
+
+			var textureP7 = new THREE.TextureLoader().load("https://upload.wikimedia.org/wikipedia/commons/9/9f/8foldway.png")
+			var geometryP7 = new THREE.PlaneGeometry( 1, (342/389), 32 );
+			var materialP7 = new THREE.MeshBasicMaterial( {map: textureP7, side: THREE.DoubleSide, transparent: true} );
+			var planeP7 = new THREE.Mesh( geometryP7, materialP7 );
+			scene.add( planeP7 );
+			planeP7.rotation.y = -0.26;
+			planeP7.position.x = -0.6+30;
+			planeP7.position.y = -0.9;
+			planeP7.position.z = 0.3
+
+			// *********************************************
+
+
+
+
+			camera.rotation.y = -0.26
+			camera.position.z = 3;
+			camera.position.x = 0;
+
+
+
+			var targetCameraPos = 0;
+			document.addEventListener("keypress", function(event) {
+				if (event.code == "KeyD") {
+					//camera.position.x += 1;
+					if (targetCameraPos != 30) {
+						//camera.position.x -= 1;
+						targetCameraPos += 5;
+					}
+				}
+				if (event.code == "KeyA") {
+					if (targetCameraPos != 0) {
+						//camera.position.x -= 1;
+						targetCameraPos -= 5;
+					}
+				}
+			});
+			document.addEventListener("keydown", function(event) {
+				if (event.code == "ArrowRight") {
+					//camera.position.x += 1;
+					if (targetCameraPos != 30) {
+						//camera.position.x -= 1;
+						targetCameraPos += 5;
+					}
+				}
+				if (event.code == "ArrowLeft") {
+					if (targetCameraPos != 0) {
+						//camera.position.x -= 1;
+						targetCameraPos -= 5;
+					}
+				}
+			});
+			document.addEventListener("mousemove", function(event) {
+				camera.rotation.y = -0.26 -event.pageX/12000;
+				camera.rotation.x = 0.02 -event.pageY/12000;
+			});
+
+			function animate() {
+				requestAnimationFrame( animate );
+				//camera.rotation.y += 0.01
+
+				if(camera.position.x < targetCameraPos) {
+					camera.position.x += (targetCameraPos - camera.position.x)/10
+				} else if(camera.position.x > targetCameraPos) {
+					camera.position.x -= (camera.position.x - targetCameraPos)/10
+				}
+				renderer.render( scene, camera );
+			}
+			animate();
+		</script>
+	</body>
 </html>
